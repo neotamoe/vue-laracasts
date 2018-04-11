@@ -7,9 +7,15 @@
 
 <body>
     <div id="root">
-        <coupon @applied="onCouponApplied"></coupon>
-
-        <h1 v-if="couponApplied">You used a coupon!</h1>
+        <modal>
+            <template slot="header">My Special Title</template>
+            Here is my main content.  This goes in the unnamed slot.
+            <!-- <template slot="footer">
+                <button class="button is-success">Save changes</button>
+                <button class="button">Cancel</button>
+            </template> -->
+            <!-- if this content isn't here, the default component content will be shown. -->
+        </modal>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
