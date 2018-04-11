@@ -2,16 +2,12 @@
 
 <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
-        <style type="text/css"> body { padding-top: 50px; }</style>
+        <style type="text/css"> body { padding: 50px; }</style>
 </head>
 
 <body>
     <div id="root">
-        <!-- @close is a custom event -->
-        <modal v-show="showModal" @close="showModal = false">
-            <p>We insert anything we want in this slot.</p>
-        </modal>
-        <button @click="showModal = true">Show Modal</button>
+        <coupon v-on:applied="onCouponApplied"></coupon>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

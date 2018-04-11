@@ -1,18 +1,9 @@
-Vue.component('modal', {
-    template: `
-        <div class="modal is-active">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <slot></slot>
-                </div>
-            </div>
-            <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
-        </div>
-    `,
-    data() {
-        return {
-
+Vue.component('coupon', {
+    template: '<input placeholder="Enter your coupon code" @blur="onCouponApplied">',
+    
+    methods: {
+        onCouponApplied() {
+            this.$emit('applied');
         }
     }
 });
@@ -20,7 +11,9 @@ Vue.component('modal', {
 
 new Vue({
     el: '#root',
-    data: {
-        showModal: false
+    methods: {
+        onCouponApplied() {
+            alert('It was applied');
+        }
     }
 })
