@@ -1,24 +1,27 @@
 <html>
 
 <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
-        <style type="text/css"> body { padding: 50px; }</style>
+    <title>My New Vue App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+    <style type="text/css"> body { padding: 50px; }</style>
 </head>
 
 <body>
     <div id="root">
-        <modal>
-            <template slot="header">My Special Title</template>
-            Here is my main content.  This goes in the unnamed slot.
-            <!-- <template slot="footer">
-                <button class="button is-success">Save changes</button>
-                <button class="button">Cancel</button>
-            </template> -->
-            <!-- if this content isn't here, the default component content will be shown. -->
-        </modal>
+        <!-- still need a single root element in an inline template -->
+        <progress-view inline-template>
+            <div>
+                <h1>Your progress through this course is {{completionRate}}%</h1>
+
+                <p><button @click="completionRate += 10">Update Completion Rate</button></p>
+            </div>
+        </progress-view>
     </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>
+
 </body>
 
 </html>
