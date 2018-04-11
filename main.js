@@ -1,25 +1,26 @@
-Vue.component('task-list', {
+Vue.component('modal', {
     template: `
-        <div>
-            <task v-for="task in tasks" :key="task.id">{{task.description}}</task>
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <slot></slot>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
         </div>
     `,
     data() {
         return {
-            tasks: [
-                { description: 'Go to the store', complete: true},
-                { description: 'Go to the bank', complete: false},
-                { description: 'Go to the farm', complete: true},
-                { description: 'Go to work', complete: false},
-            ]
+
         }
     }
 });
 
-Vue.component('task', {
-    template: '<li><slot></slot></li>'
-});
 
 new Vue({
-    el: '#root'
+    el: '#root',
+    data: {
+        showModal: false
+    }
 })
