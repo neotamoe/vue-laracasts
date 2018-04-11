@@ -3,16 +3,29 @@
     </head>
     <body>
         <div id="root">
-            <input type="text" id="input" v-model="message">
-            <p>The value of the input is {{message}}</p>
+            <ul>
+                <li v-for="name in names" v-text="name"></li>
+            </ul>
+            <input type="text" v-model="newName">
+
+            <!-- <button v-on:click="addName">Add Name</button> -->
+            <!-- these two buttons do the same thing, just different syntax -->
+            <button @click="addName">Add Name</button>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 
         <script>
-            new Vue({
+            var app = new Vue({
                 el: '#root',
                 data: {
-                    message: 'Hello World'
+                    newName: '',
+                    names: ['Joe', 'Mary', 'Jane', 'Jack']
+                },
+                methods: {
+                    addName() {
+                        this.names.push(this.newName);
+                        this.newName = '';
+                    }
                 }
             })
         </script>
