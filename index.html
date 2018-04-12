@@ -7,17 +7,13 @@
 </head>
 
 <body>
-    <div id="root">
-        <!-- still need a single root element in an inline template -->
-        <progress-view inline-template>
-            <div>
-                <h1>Your progress through this course is {{completionRate}}%</h1>
-
-                <p><button @click="completionRate += 10">Update Completion Rate</button></p>
-            </div>
-        </progress-view>
+    <div id="one">
+        <h1>{{user.name}}</h1>
     </div>
 
+    <div id="two">
+        <h1>{{user.name}}</h1>        
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="main.js"></script>

@@ -1,10 +1,17 @@
-Vue.component('progress-view', {
-    data () {
-        return { completionRate: 50 };
-    }
-});
 
+
+let source = {
+    user: {
+        name: 'Jane Doe'
+    }
+}
 
 new Vue({
-    el: '#root',
+    el: '#one',
+    data: source
+})
+
+new Vue({
+    el: '#two',
+    data: source
 })
