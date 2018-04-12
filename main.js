@@ -8,10 +8,16 @@ let source = {
 
 new Vue({
     el: '#one',
-    data: source
+    data: {
+        shared: source,
+        foo: 'bar'
+    }
 })
 
 new Vue({
     el: '#two',
-    data: source
+    data: {
+        shared: source,
+        foo: 'baz'
+    }
 })
