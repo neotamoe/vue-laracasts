@@ -8,7 +8,17 @@
 
 <body>
     <div id="root">
-        <coupon v-model="coupon">
+        <menu-list :items="['one', 'two', 'three']">          
+            <template scope="props">
+                <h1 v-text="props.item"></h1>
+            </template>
+        </menu-list>
+        <hr>
+        <menu-list :items="['one', 'two', 'three']">          
+            <template scope="{item}">
+                <h1 v-text="item"></h1>
+            </template>
+        </menu-list>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>

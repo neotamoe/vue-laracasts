@@ -1,24 +1,17 @@
-Vue.component('coupon', {
-    props: ['value'],
+Vue.component('menu-list', {
+    props: ['items'],
 
     template: `
-        <input type="text" :value="value" @input="updateCode($event.target.value)" ref="input">
-    `,
-
-    methods: {
-        updateCode(code) {
-            if(code==='ALLFREE'){
-                alert('This coupon is no longer valid.  Sorry!');
-                this.$refs.input.value = code = '';
-            }
-            this.$emit('input', code);
-        }
-    }
+        <div>
+            <ul>
+                <li v-for="item in items">
+                    <slot :item="item">{{item}}</slot>
+                </li>
+            </ul>
+        </div>
+    `
 })
 
 new Vue({
     el: '#root',
-    data: {
-        coupon: 'FREEBIE'
-    }
 })
