@@ -1,23 +1,24 @@
+Vue.component('coupon', {
+    props: ['value'],
 
+    template: `
+        <input type="text" :value="value" @input="updateCode($event.target.value)" ref="input">
+    `,
 
-let source = {
-    user: {
-        name: 'Jane Doe'
-    }
-}
-
-new Vue({
-    el: '#one',
-    data: {
-        shared: source,
-        foo: 'bar'
+    methods: {
+        updateCode(code) {
+            if(code==='ALLFREE'){
+                alert('This coupon is no longer valid.  Sorry!');
+                this.$refs.input.value = code = '';
+            }
+            this.$emit('input', code);
+        }
     }
 })
 
 new Vue({
-    el: '#two',
+    el: '#root',
     data: {
-        shared: source,
-        foo: 'baz'
+        coupon: 'FREEBIE'
     }
 })
